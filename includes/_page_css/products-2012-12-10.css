@@ -1,0 +1,30 @@
+selector .woocommerce ul.products li.product a.woocommerce-LoopProduct-link > img {
+    display: none;
+}
+selector .categories:before {
+    content: '';
+    position: absolute;
+    width: 30%;
+    border-top: 3px solid #019bdb;
+    top: 5px;
+    left: 35%;
+}
+selector .categories {
+    position: relative;
+    padding: 15px 0 5px;
+}
+selector .categories a {
+    font-size: 15px;
+}
+
+.woocommerce .elementor-element.elementor-products-grid ul.products li.product, .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product {
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce .elementor-element.elementor-products-grid ul.products li.product .price, .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product .price {
+    margin-top: auto;
+}
+.woocommerce .elementor-element.elementor-products-grid ul.products li.product .add_to_cart_button, .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product .add_to_cart_button {
+    align-self: center;
+}
