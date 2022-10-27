@@ -22,10 +22,14 @@ class Shop {
         // add_filter( 'aws_title_search_result', array($this, 'modify_aws_title_search_result'), 1, 3);
         add_filter( 'woocommerce_catalog_orderby', array($this, 'shop_remove_default_sorting_options'), 10, 1 );
 
-    } // end function 
- 
+        add_filter( 'wpseo_sitemap_post_type_archive_link', array($this, 'remove_shop_from_sitemap_archive_link'), 10, 2 );
 
-    function shop_remove_default_sorting_options( $options ){
+    } // end function      
+
+    /**
+     * Remove certain sorting items
+     */
+    public function shop_remove_default_sorting_options( $options ){
     
         unset( $options[ 'popularity' ] );
         // unset( $options[ 'menu_order' ] );
@@ -42,7 +46,7 @@ class Shop {
     *
     * @link http://codex.wordpress.org/Plugin_API/Filter_Reference/gettext
     */
-    function igx_change_wc_text_strings( $translated_text, $text, $domain ) {
+    public function igx_change_wc_text_strings( $translated_text, $text, $domain ) {
 
         if($domain == 'woocommerce') {
             switch ( $translated_text ) {
@@ -149,6 +153,19 @@ class Shop {
     // public function modify_aws_title_search_result($title, $post_id, $product) {
     //     return $title;
     // }
+
+    /**
+     * Remove the shop page from showing up in the product cat sitemap
+     */
+    public function remove_shop_from_sitemap_archive_link( $link, $post_type ) {
+        // Disable product/post archives in the sitemaps
+        if ( $post_type === 'product' )
+                return false;
+
+        return $link;
+    }
+        
+
     public function wl ( $log )  {
         if ( true === WP_DEBUG ) {
             if ( is_array( $log ) || is_object( $log ) ) {

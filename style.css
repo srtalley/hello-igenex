@@ -5,8 +5,8 @@ Description: Hello Elementor Child is a child theme of Hello Elementor, created 
 Author: Elementor Team
 Author URI: https://elementor.com/
 Template: hello-elementor
-Version: 1.1.4a
-Date: 2022-01-02
+Version: 1.1.7
+Date: 2022-08-19
 Text Domain: hello-elementor-child
 License: GNU General Public License v3 or later.
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -106,7 +106,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     top: 132px;
 }
 .igenex_test_heading, 
-.shop-products-grid .products.elementor-grid li.product {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -116,22 +116,25 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 .single-product .shop-products-grid .products.elementor-grid li.product {
     max-width: 600px;
 }
-
-.shop-products-grid .products.elementor-grid li.product {
+.single-product .shop-products-grid .products.elementor-grid {
+    margin-bottom: 16px;
+    grid-row-gap: 0 !important;
+}
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product {
     background-color: #e9e9e9;
     margin: 3px 0 !important;
     width: 100%;
 }
 .igenex_test_heading .test_number,
-.shop-products-grid .products.elementor-grid li.product .test_number {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .test_number {
     flex: 0 0 90px;
     padding: 0 10px;
     text-align: right;
 }
-.shop-products-grid .products.elementor-grid li.product .test_number a.woocommerce-LoopProduct-link  {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .test_number a.woocommerce-LoopProduct-link  {
     color: #2f3133;
 }
-.shop-products-grid .products.elementor-grid li.product .test_number a.woocommerce-LoopProduct-link:hover {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .test_number a.woocommerce-LoopProduct-link:hover {
     color: #019bdb;
 }
 .shop-products-grid .test_number .test_number_description {
@@ -141,19 +144,19 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     color: #2f3133;
     font-weight: 600;
 }
-.shop-products-grid .products.elementor-grid li.product .woocommerce-LoopProduct-link:hover .woocommerce-loop-product__title {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .woocommerce-LoopProduct-link:hover .woocommerce-loop-product__title {
     color: #019bdb !important;
 }
 .igenex_test_heading .title,
-.shop-products-grid .products.elementor-grid li.product .igx_product_title_wrapper {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .igx_product_title_wrapper {
     flex: 1 1 30%;
     padding-right: 10px;
 }
-.shop-products-grid .products.elementor-grid li.product .igx_product_title_wrapper .woocommerce-LoopProduct-link {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .igx_product_title_wrapper .woocommerce-LoopProduct-link {
     display: inline-block;
 }
 .igenex_test_heading .categories,
-.shop-products-grid .products.elementor-grid li.product .categories {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .categories {
     flex: 0 0 300px;
     padding: 0 10px;
 }
@@ -161,7 +164,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     font-size: 15px;
 }
 .igenex_test_heading .price_wrapper,
-.shop-products-grid .products.elementor-grid li.product .price_wrapper {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .price_wrapper {
     flex: 0 0 100px;
     margin-bottom: 0;
     text-align: right;
@@ -172,7 +175,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     flex-basis: 150px;
 }
 .igenex_test_heading .price_wrapper .price ,
-.shop-products-grid .products.elementor-grid li.product .price_wrapper .price {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .price_wrapper .price {
     margin-bottom: 0;
 }
 .single-product .products.elementor-grid li.product .price_wrapper .price  {
@@ -180,11 +183,11 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     color: #2d2d2d;
 }
 .igenex_test_heading .product_link,
-.shop-products-grid .products.elementor-grid li.product .product_link {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link {
     flex: 0 0 20px;
     height: 100%;
 }
-.shop-products-grid .products.elementor-grid li.product .product_link a {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link a {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -192,14 +195,14 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     height: 100%;
     transition: all 0.4s ease-in-out;
 }
-.shop-products-grid .products.elementor-grid li.product .product_link a svg path {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link a svg path {
     fill: #bbb1b1 !important;
     transition: all 0.4s ease-in-out;
 }
-.shop-products-grid .products.elementor-grid li.product .product_link a:hover {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link a:hover {
     background-color: #019bdb;
 }
-.shop-products-grid .products.elementor-grid li.product .product_link a:hover svg path {
+.shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link a:hover svg path {
     fill: #fff !important;
 }
 .igenex_test_heading {
@@ -354,11 +357,11 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 
 /* @media (max-width: 1400px) {
     .igenex_test_heading .title,
-    .shop-products-grid .products.elementor-grid li.product .woocommerce-loop-product__link {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .woocommerce-loop-product__link {
         flex-basis: 50%;
     }
     .igenex_test_heading .categories,
-    .shop-products-grid .products.elementor-grid li.product .categories {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .categories {
         flex: 0 1 20%;
     }
 } */
@@ -381,11 +384,11 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
         flex-basis: 100px;
     }
     .igenex_test_heading .title,
-    .shop-products-grid .products.elementor-grid li.product .igx_product_title_wrapper {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .igx_product_title_wrapper {
         flex-basis: 35%;
     }
     .igenex_test_heading .categories,
-    .shop-products-grid .products.elementor-grid li.product .categories {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .categories {
         flex-basis: 200px;
     }
 }
@@ -432,16 +435,16 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
         order: 3;
         /* flex: 0 1 100px; */
     }
-    body:not(.single-product) .shop-products-grid .products.elementor-grid li.product .igx_product_title_wrapper {
+    body:not(.single-product) .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .igx_product_title_wrapper {
         flex-basis: 70%;
     }
     .igenex_test_heading .categories,
-    .shop-products-grid .products.elementor-grid li.product .categories {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .categories {
         flex: 1 1 20%;
         text-align: right;
     }
     .igenex_test_heading .product_link,
-    .shop-products-grid .products.elementor-grid li.product .product_link {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link {
         height: auto;
     }
 }
@@ -452,33 +455,33 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 }
 @media (max-width: 480px) {
 
-    .shop-products-grid .products.elementor-grid li.product .igx_product_title_wrapper {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .igx_product_title_wrapper {
         /* flex-basis: 40%; */
         /* order: 1; */
         /* padding-left: 10px; */
     }
-    .shop-products-grid .products.elementor-grid li.product .test_number {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .test_number {
         /* text-align: left; */
         /* order: 2; */
         /* flex-basis: 70px; */
         /* font-size: 13px; */
         /* padding-left: 0; */
     }
-    .shop-products-grid .products.elementor-grid li.product .categories,
-    .shop-products-grid .products.elementor-grid li.product .product_link,
-    .shop-products-grid .products.elementor-grid li.product .price_wrapper,
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .categories,
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link,
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .price_wrapper,
     .igenex_test_heading .categories,
     .igenex_test_heading .price_wrapper,
     .igenex_test_heading .product_link {
         /* text-align: left; */
         display: none;
     }
-    .shop-products-grid .products.elementor-grid li.product .product_link
-    .shop-products-grid .products.elementor-grid li.product > * {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .product_link
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product > * {
         /* order: 10; */
     }
 
-    .shop-products-grid .products.elementor-grid li.product .price_wrapper .price {
+    .shop-products-grid.elementor-products-grid ul.products.elementor-grid li.product .price_wrapper .price {
         /* font-size: 14px !important; */
     }
     

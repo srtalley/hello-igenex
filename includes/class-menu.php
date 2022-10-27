@@ -42,24 +42,36 @@ class Menu {
            
             if(site_url() == "https://igenex.site" || site_url() == "https://igenex.com/test-directory") {
                 $wpdb = new \wpdb('igenex_user', 'AHkXWwTBJaofs6mWALRDtirN', 'igenex_main20190605', 'localhost');
+            } else if (site_url() == "https://stage1.igenex.com/test-directory") {
+                $wpdb = new \wpdb('igenex_stage1', 'e,q2[R6t2}*l,eK[eq3Fgxko', 'igenex_stage1', 'localhost');
             } else {
                 $wpdb = new \wpdb('root', 'cavyn2g-wp-36', 'wp-igenexstd', 'db');
             }            
 
-            $wpdb->set_prefix('wp_');
+            if(is_wp_error($wpdb->error)) {
+                // get out of this without showing an error on the frontend
+                $wpdb = $wpdb_backup;
+                wp_cache_flush();
+                wp_reset_query();
+                return $items;
+            } else {
+               
+                $wpdb->set_prefix('wp_');
 
-            wp_cache_flush();
+                wp_cache_flush();
 
-            $menu = wp_get_nav_menu_items(41);
-           
-            $wpdb = $wpdb_backup;
-            wp_cache_flush();
-
-            wp_reset_query();
+                $menu = wp_get_nav_menu_items(41);
             
-            unregister_post_type( 'disease' );
+                $wpdb = $wpdb_backup;
 
-            return $menu;
+                wp_cache_flush();
+
+                wp_reset_query();
+                
+                unregister_post_type( 'disease' );
+
+                return $menu;
+            }
         }
         return $items;
     }
@@ -69,7 +81,7 @@ class Menu {
     public function igx_woo_cart_button_shortcode() {
         ob_start();
         ?>
-        <a class="cart-link" style="position: relative;" href="https://igenex.com/cart">
+        <a class="cart-link" style="position: relative;" href="https://igenex.com/cart/">
 
         <svg xmlns="http://www.w3.org/2000/svg" class="cart-icon" width="38" height="60" viewBox="0 0 29 23">
         <title>Shopping Cart</title>

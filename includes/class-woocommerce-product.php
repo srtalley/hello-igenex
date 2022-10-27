@@ -9,6 +9,7 @@ class Product {
         add_filter( 'woocommerce_short_description', array($this, 'add_test_panel_info'), 10, 1);
         add_filter( 'woocommerce_product_tabs', array($this, 'add_product_information_tabs') );
         add_action( 'woocommerce_product_meta_end', array($this, 'show_additional_info'), 10, 1);
+        add_filter( 'woocommerce_breadcrumb_home_url', array($this, 'woo_custom_breadrumb_home_url') );
 
     } // end function 
 
@@ -96,7 +97,7 @@ class Product {
         // $html .= '<div class="clear"></div><div class="igenex_test_heading"><div class="test_number">Test No.</div><div class="title">Test Name</div><div class="categories">Category</div><div class="price_wrapper">Price</div><div class="product_link"></div></div>';
         $html .= '<div class="clear"></div><div class="igenex_test_heading"><div class="test_number">Test No.</div><div class="title">Test Name</div><div class="price_wrapper">Individual Price</div><div class="product_link"></div></div>';
 
-        $html .= '<div class="test_panel_individual_tests shop-products-grid"><ul class="products elementor-grid">';
+        $html .= '<div class="test_panel_individual_tests shop-products-grid elementor-products-grid"><ul class="products elementor-grid">';
         
         // show each test
         foreach($test_panel_individual_tests as $product_id) {
@@ -184,7 +185,12 @@ class Product {
             return $content;
         }
     }
-
+    /**
+     * Replace the home link URL
+     */
+    function woo_custom_breadrumb_home_url() {
+        return site_url('/');
+    }
     public function wl ( $log )  {
         if ( true === WP_DEBUG ) {
             if ( is_array( $log ) || is_object( $log ) ) {
